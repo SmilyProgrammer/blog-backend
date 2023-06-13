@@ -20,6 +20,9 @@ const PostSchema = new mongoose.Schema(
     auther: {
       type: String,
     },
+    category: {
+      type: String,
+    },
     is_publish: {
       type: Boolean,
       default: false,

@@ -9,14 +9,17 @@ require("dotenv").config();
 
 app.use(bodyParser.json());
 
+app.use(express.static(__dirname + "/public"));
+
 /**
  * Connection Establish With MongoDB
  */
 mongoose.set("strictQuery", false);
 mongoose.connect(process.env.DATABASE_URI).then(() => {
   console.log("MongoDB Connected Successfully");
-  app.use("/v1/api", router);
 });
+
+app.use("/v1/api", router);
 
 server.listen(4000, () => {
   console.log("Server is Running on Port 4000");
