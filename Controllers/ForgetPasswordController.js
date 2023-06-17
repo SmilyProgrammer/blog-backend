@@ -9,7 +9,8 @@ const bcrypt = require("bcrypt");
  */
 const sendResetLink = async (mail, hash) => {
   var transport = nodemailer.createTransport({
-    host: "BlogSite.com",
+    name: "BlogSite.com",
+    host: process.env.HOST,
     port: 2525,
     secure: false,
     auth: {

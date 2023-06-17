@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const router = require("./routes/routes");
 require("dotenv").config();
+const cors = require("cors");
 
 app.use(bodyParser.json());
 
@@ -19,6 +20,7 @@ mongoose.connect(process.env.DATABASE_URI).then(() => {
   console.log("MongoDB Connected Successfully");
 });
 
+app.use(cors());
 app.use("/v1/api", router);
 
 server.listen(4000, () => {

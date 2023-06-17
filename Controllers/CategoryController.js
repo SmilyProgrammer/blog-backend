@@ -29,7 +29,7 @@ const createCategory = async (req, res) => {
  * getAllCategories
  */
 const getAllCategories = async (req, res) => {
-  let allCategories = Category.find({});
+  let allCategories = await Category.find({});
   if (allCategories == null) {
     res.json({
       success: false,
@@ -39,7 +39,7 @@ const getAllCategories = async (req, res) => {
     res.json({
       success: true,
       message: "Categories fateched successfully",
-      allCategories,
+      data: allCategories,
     });
   }
 };
